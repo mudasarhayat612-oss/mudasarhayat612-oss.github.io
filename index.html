@@ -1,688 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mudasar Hayat | Python & Django Developer</title>
+<meta name="description" content="Mudasar Hayat, BS Software Engineering student at Virtual University of Pakistan. Python and Django projects, ML experiments, and internship experience in SEO and business development.">
+<meta property="og:title" content="Mudasar Hayat | Python & Django Developer">
+<meta property="og:description" content="Django web apps, machine-learning projects and real internship experience.">
+<meta property="og:image" content="https://mudasarhayat612-oss.github.io/mudasar-profile.jpg">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://mudasarhayat612-oss.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Mudasar Hayat","url":"https://mudasarhayat612-oss.github.io/","jobTitle":"Python and Django Developer","email":"mailto:mudasarhayat612@gmail.com","alumniOf":"Virtual University of Pakistan","sameAs":["https://github.com/mudasarhayat612-oss","https://www.linkedin.com/in/mudasar-hayat-075466403/"]}</script>
+<meta name="theme-color" content="#2b4fd8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f6fa;--surface:#fff;--ink:#12151c;--muted:#586074;--accent:#2b4fd8;--on-accent:#fff;--line:#dfe3ec;
+--display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;--body:'DM Sans','Segoe UI',system-ui,sans-serif}
+@media(prefers-color-scheme:dark){:root{--bg:#0f1218;--surface:#171b24;--ink:#eceef4;--muted:#9aa3b5;--accent:#8ea6ff;--on-accent:#0f1218;--line:#262c39}}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--ink);font:400 1.05rem/1.65 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+section{padding:72px 0}
+h1,h2,h3{font-family:var(--display);line-height:1.1;letter-spacing:-.02em}
+h2{font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:12px}
+.lead{color:var(--muted);max-width:60ch}
 
-  <meta name="description"
-        content="Mudasar Hayat — BS Software Engineering student, Python, Django, SEO and Business Development.">
+header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font:800 1.25rem var(--display);text-decoration:none}
+nav ul{display:flex;gap:26px;list-style:none;padding:0}
+nav a{text-decoration:none;color:var(--muted);font-weight:500}
+nav a:hover{color:var(--ink)}
+#menu{display:none;background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:6px 12px;font:inherit;cursor:pointer}
 
-  <title>Mudasar Hayat | Software Engineering Portfolio</title>
+.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:56px;align-items:center;padding:80px 0 64px}
+.status{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);background:var(--surface);border-radius:99px;padding:6px 14px;font-size:.92rem;color:var(--muted);margin-bottom:22px}
+.status i{width:9px;height:9px;border-radius:50%;background:#22a06b}
+.hero h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:800;margin-bottom:20px}
+.hero p{color:var(--muted);max-width:52ch;margin-bottom:30px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:12px 22px;border-radius:10px;font-weight:700;text-decoration:none;border:2px solid var(--accent)}
+.btn.main{background:var(--accent);color:var(--on-accent)}
+.btn.alt{color:var(--accent)}
+.btn:hover{filter:brightness(1.08)}
+.photo{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:28px 28px 120px 28px;border:1px solid var(--line);background:var(--surface)}
 
-  <link rel="stylesheet" href="style.css">
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 8px}
+.filters button{font:500 .95rem var(--body);color:var(--ink);background:none;border:1px solid var(--line);border-radius:99px;padding:6px 16px;cursor:pointer}
+.filters button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.proj{display:grid;grid-template-columns:1fr auto;gap:8px 32px;padding:26px 0;border-bottom:1px solid var(--line)}
+.proj[hidden]{display:none}
+.proj h3{font-size:1.4rem;margin-bottom:6px}
+.proj p{color:var(--muted);max-width:62ch}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;list-style:none;padding:0}
+.tags li{font-size:.85rem;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:2px 10px}
+.proj a.go{align-self:center;font-weight:700;color:var(--accent);white-space:nowrap}
+
+.skills{background:var(--surface);border-block:1px solid var(--line)}
+dl{display:grid;grid-template-columns:200px 1fr;gap:0;margin-top:28px}
+dt,dd{padding:16px 0;border-top:1px solid var(--line)}
+dt{font:700 1.05rem var(--display)}
+dd{color:var(--muted)}
+
+.job{display:grid;grid-template-columns:170px 1fr;gap:8px 32px;padding:26px 0;border-top:1px solid var(--line)}
+.job time{color:var(--muted);font-weight:500}
+.job h3{font-size:1.25rem}
+.job h3 span{color:var(--accent)}
+.job ul{margin:10px 0 0 18px;color:var(--muted)}
+.job p{color:var(--muted);margin-top:6px}
+
+.certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:28px}
+.cert{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.cert h3{font-size:1.15rem;margin-bottom:4px}
+.cert p{color:var(--muted);font-size:.95rem;margin-bottom:12px}
+.cert a{color:var(--accent);font-weight:700}
+.contact{background:var(--accent);color:var(--on-accent)}
+.contact .lead{color:inherit;opacity:.9}
+.links{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.links a{border:2px solid currentColor;border-radius:10px;padding:10px 20px;font-weight:700;text-decoration:none}
+.links a:hover{background:var(--on-accent);color:var(--accent)}
+footer{padding:28px 0;color:var(--muted);font-size:.92rem}
+
+.skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:var(--on-accent);padding:8px 14px;border-radius:8px;z-index:20}
+.skip:focus{left:8px}
+nav a.on{color:var(--ink);box-shadow:0 2px 0 var(--accent)}
+nav a.cta{display:inline-block;background:var(--accent);color:var(--on-accent);border-radius:8px;padding:6px 16px;font-weight:700;box-shadow:none}
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:start;margin-top:8px}
+.about p+p{margin-top:14px}
+.about p{color:var(--muted);max-width:60ch}
+dl.facts{grid-template-columns:120px 1fr;margin-top:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:6px 22px}
+dl.facts dt{font-size:.95rem}
+dl.facts dt,dl.facts dd{padding:12px 0}
+dl.facts dt:first-of-type,dl.facts dd:first-of-type{border-top:0}
+.proj.feat{border-left:4px solid var(--accent);padding-left:22px}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.foot a{color:var(--accent);font-weight:700}
+@media print{header,.filters,.foot a,.contact .links{display:none}body{background:#fff;color:#000}section{padding:24px 0}}
+@media(max-width:780px){
+ .about{grid-template-columns:1fr;gap:28px}
+ dl.facts{grid-template-columns:1fr}
+ dl.facts dt{padding-bottom:0;border-top:1px solid var(--line)}
+ dl.facts dd{padding-top:2px;border-top:0}
+ section{padding:52px 0}
+ .hero{grid-template-columns:1fr;gap:36px;padding-top:48px}
+ .photo{max-width:320px}
+ #menu{display:block}
+ nav ul{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 24px}
+ nav ul.open{display:flex}
+ nav li a{display:block;padding:12px 0}
+ .proj{grid-template-columns:1fr}
+ dl,.job{grid-template-columns:1fr}
+ dt{border-bottom:0;padding-bottom:0}
+ dd{border-top:0;padding-top:4px}
+ .job{gap:4px}
+}
+</style>
 </head>
-
 <body>
-
-  <!-- NAVIGATION -->
-  <header class="navbar">
-
-    <a class="brand" href="#home">
-      Mudasar<span>.</span>
-    </a>
-
-    <button
-      class="menu-toggle"
-      aria-label="Open menu"
-      aria-expanded="false">
-      ☰
-    </button>
-
-    <nav>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#certificates">Certificates</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-  </header>
-
-
-  <main>
-
-    <!-- HERO -->
-    <section id="home" class="hero">
-
-      <div class="hero-text">
-
-        <p class="eyebrow">
-          BS Software Engineering • Python & Django • SEO • Business Development
-        </p>
-
-        <h1>
-          Hi, I'm <span>Mudasar Hayat</span>.
-        </h1>
-
-        <p class="lead">
-          A motivated Software Engineering student with practical experience
-          in Python, Django, web development, business development, SEO,
-          product listing, lead generation and client communication.
-        </p>
-
-        <div class="buttons">
-
-          <a class="btn primary" href="#projects">
-            View My Work
-          </a>
-
-          <a class="btn secondary" href="#contact">
-            Contact Me
-          </a>
-
-          <a
-            class="btn secondary"
-            href="https://www.linkedin.com/in/mudasar-hayat-075466403/"
-            target="_blank"
-            rel="noopener noreferrer">
-            LinkedIn
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <div class="hero-card">
-
-        <div class="avatar photo-avatar">
-          <img
-            src="mudasar-profile.jpg"
-            alt="Mudasar Hayat professional profile photo">
-        </div>
-
-        <h3>
-          Currently
-        </h3>
-
-        <p>
-          Business Development Intern
-        </p>
-
-        <strong>
-          Bitzsol
-        </strong>
-
-        <div class="mini-stats">
-
-          <div>
-            <b>BS</b>
-            <small>Software Engineering</small>
-          </div>
-
-          <div>
-            <b>PY</b>
-            <small>Python & Django</small>
-          </div>
-
-          <div>
-            <b>BD</b>
-            <small>Lead Generation</small>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ABOUT -->
-    <section id="about" class="section">
-
-      <p class="section-label">
-        01 — About
-      </p>
-
-      <h2>
-        Building skills across technology and digital business.
-      </h2>
-
-      <p class="section-intro">
-        I am pursuing BS Software Engineering at Virtual University of Pakistan.
-        My experience combines software development, digital marketing and
-        business development. I enjoy building practical projects, learning
-        new technologies and working on tasks that connect technology with
-        real business needs.
-      </p>
-
-    </section>
-
-
-    <!-- EXPERIENCE -->
-    <section id="experience" class="section">
-
-      <p class="section-label">
-        02 — Experience
-      </p>
-
-      <h2>
-        Experience & practical learning.
-      </h2>
-
-      <div class="timeline">
-
-        <!-- BITZSOL -->
-
-        <article class="timeline-item current">
-
-          <div class="dot"></div>
-
-          <div>
-
-            <span class="tag">
-              CURRENT
-            </span>
-
-            <h3>
-              Business Development Intern
-            </h3>
-
-            <h4>
-              Bitzsol
-            </h4>
-
-            <p>
-              Lead generation through LinkedIn and social media,
-              market research, client outreach, follow-ups and
-              maintaining lead records.
-            </p>
-
-          </div>
-
-        </article>
-
-
-        <!-- SAMLOCALS -->
-
-        <article class="timeline-item">
-
-          <div class="dot"></div>
-
-          <div>
-
-            <h3>
-              SEO Intern
-            </h3>
-
-            <h4>
-              SamLocals · Dec 2025 — Mar 2026
-            </h4>
-
-            <p>
-              Worked on On-Page and Off-Page SEO activities, content writing,
-              backlink building, business citations, WooCommerce product
-              management, SEO reporting and maintaining records in Microsoft Excel.
-            </p>
-
-            <ul>
-
-              <li>
-                Wrote and optimized blogs and website posts using
-                On-Page SEO techniques.
-              </li>
-
-              <li>
-                Performed Off-Page SEO activities including
-                backlink building and business citations.
-              </li>
-
-              <li>
-                Managed and optimized product listings using WooCommerce.
-              </li>
-
-              <li>
-                Prepared SEO activity and performance reports.
-              </li>
-
-              <li>
-                Maintained SEO activities, backlinks, citations and
-                other records in Microsoft Excel.
-              </li>
-
-            </ul>
-
-          </div>
-
-        </article>
-
-
-        <!-- XIAOMI -->
-
-        <article class="timeline-item">
-
-          <div class="dot"></div>
-
-          <div>
-
-            <h3>
-              Product Listing Intern
-            </h3>
-
-            <h4>
-              Xiaomi Store
-            </h4>
-
-            <p>
-              Product listing on eBay and Amazon, MS Excel data management
-              and maintaining record accuracy.
-            </p>
-
-          </div>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- SKILLS -->
-    <section id="skills" class="section">
-
-      <p class="section-label">
-        03 — Skills
-      </p>
-
-      <h2>
-        Tools I work with.
-      </h2>
-
-      <div class="skills-grid">
-
-        <div class="skill-card">
-          <h3>
-            Programming & Development
-          </h3>
-
-          <p>
-            Python · Django · HTML5 · CSS3 · JavaScript · SQL
-          </p>
-        </div>
-
-
-        <div class="skill-card">
-          <h3>
-            Tools & Technologies
-          </h3>
-
-          <p>
-            Git · GitHub · Bootstrap · WordPress · WooCommerce ·
-            MySQL · SQLite · VS Code
-          </p>
-        </div>
-
-
-        <div class="skill-card">
-          <h3>
-            Digital Marketing
-          </h3>
-
-          <p>
-            SEO · Keyword Research · On-Page SEO · Technical SEO ·
-            Link Building · Citations
-          </p>
-        </div>
-
-
-        <div class="skill-card">
-          <h3>
-            SEO Tools
-          </h3>
-
-          <p>
-            SEMrush · Ubersuggest · Screaming Frog ·
-            Google Keyword Planner
-          </p>
-        </div>
-
-
-        <div class="skill-card">
-          <h3>
-            Business Development
-          </h3>
-
-          <p>
-            Lead Generation · Client Outreach · Follow-ups ·
-            Market Research
-          </p>
-        </div>
-
-
-        <div class="skill-card">
-          <h3>
-            Professional Skills
-          </h3>
-
-          <p>
-            Communication · Teamwork · Customer Service ·
-            Time Management · MS Excel
-          </p>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- PROJECTS -->
-    <section id="projects" class="section">
-
-      <p class="section-label">
-        04 — Projects
-      </p>
-
-      <h2>
-        Selected projects.
-      </h2>
-
-      <p class="section-intro">
-        Practical software engineering, machine learning and web development
-        projects built while developing my technical skills.
-      </p>
-
-      <div class="projects-grid">
-
-
-        <!-- PROJECT 01 -->
-
-        <article class="project-card">
-
-          <span>01</span>
-
-          <h3>
-            EcoSense
-          </h3>
-
-          <p>
-            Environmental Data AI project focused on working with
-            environmental data and intelligent analysis.
-          </p>
-
-          <div class="project-tags">
-            <i>AI</i>
-            <i>Data</i>
-            <i>Python</i>
-          </div>
-
-        </article>
-
-
-        <!-- PROJECT 02 -->
-
-        <article class="project-card">
-
-          <span>02</span>
-
-          <h3>
-            SpamShield
-          </h3>
-
-          <p>
-            SMS spam classification project using a spam dataset
-            and machine-learning workflow.
-          </p>
-
-          <div class="project-tags">
-            <i>ML</i>
-            <i>Python</i>
-            <i>NLP</i>
-          </div>
-
-        </article>
-
-
-        <!-- PROJECT 03 -->
-
-        <article class="project-card">
-
-          <span>03</span>
-
-          <h3>
-            URLens
-          </h3>
-
-          <p>
-            Phishing-URL detection project based on website URL
-            features and classification.
-          </p>
-
-          <div class="project-tags">
-            <i>Security</i>
-            <i>ML</i>
-            <i>Python</i>
-          </div>
-
-        </article>
-
-
-        <!-- PROJECT 04 -->
-
-        <article class="project-card">
-
-          <span>04</span>
-
-          <h3>
-            Movie Recommendation System
-          </h3>
-
-          <p>
-            A recommendation-system project designed to suggest
-            movies based on available dataset information.
-          </p>
-
-          <div class="project-tags">
-            <i>Python</i>
-            <i>Recommendation</i>
-          </div>
-
-        </article>
-
-
-        <!-- PROJECT 05 -->
-
-        <article class="project-card">
-
-          <span>05</span>
-
-          <h3>
-            Student Grade Calculator
-          </h3>
-
-          <p>
-            A Django-based web application that calculates student
-            marks and generates grades with clear Pass/Fail results.
-            The project includes input validation and printable results.
-          </p>
-
-          <div class="project-tags">
-            <i>Django</i>
-            <i>Python</i>
-            <i>HTML</i>
-            <i>CSS</i>
-          </div>
-
-          <a
-            class="btn secondary"
-            href="https://github.com/mudasarhayat612-oss/StudentGradeCalculator"
-            target="_blank"
-            rel="noopener noreferrer">
-            View Project on GitHub
-          </a>
-
-        </article>
-
-
-        <!-- PROJECT 06 -->
-
-        <article class="project-card">
-
-          <span>06</span>
-
-          <h3>
-            Employee Attendance System
-          </h3>
-
-          <p>
-            A Django-based employee attendance management system for
-            managing employees, recording attendance, viewing dashboard
-            statistics and generating attendance reports.
-          </p>
-
-          <div class="project-tags">
-            <i>Django</i>
-            <i>Python</i>
-            <i>SQLite</i>
-            <i>Bootstrap</i>
-          </div>
-
-          <a
-            class="btn secondary"
-            href="https://github.com/mudasarhayat612-oss/EmployeeAttendance"
-            target="_blank"
-            rel="noopener noreferrer">
-            View Project on GitHub
-          </a>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- CERTIFICATES -->
-    <section id="certificates" class="section">
-
-      <p class="section-label">
-        05 — Certificates
-      </p>
-
-      <h2>
-        Certifications & internships.
-      </h2>
-
-
-      <div class="certificate">
-
-        <div>
-
-          <h3>
-            SEO Internship Certificate
-          </h3>
-
-          <p>
-            <strong>SamLocals</strong> · 08 Dec 2025 — 08 Mar 2026
-          </p>
-
-          <p>
-            Certificate recognizing successful completion of a
-            3-month SEO internship.
-          </p>
-
-        </div>
-
-        <a
-          class="btn secondary"
-          href="samlocals-seo-certificate.png"
-          target="_blank">
-          View Certificate
-        </a>
-
-      </div>
-
-
-      <div class="certificate">
-
-        <div>
-
-          <h3>
-            Software Engineer Internship Certificate
-          </h3>
-
-          <p>
-            <strong>Follow Work</strong> · 15 May 2026 — 15 Jul 2026
-          </p>
-
-          <p>
-            2-month internship completion certificate in the
-            Software Engineer domain.
-          </p>
-
-        </div>
-
-        <a
-          class="btn secondary"
-          href="followwork-software-engineer-certificate.pdf"
-          target="_blank">
-          View Certificate
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- CONTACT -->
-    <section id="contact" class="section contact">
-
-      <p class="section-label">
-        06 — Contact
-      </p>
-
-      <h2>
-        Let's connect.
-      </h2>
-
-      <p class="section-intro">
-        I'm open to opportunities in Python, Django, web development,
-        SEO, digital marketing and business development.
-      </p>
-
-      <div class="contact-links">
-
-        <a href="mailto:mudasarhayat612@gmail.com">
-          mudasarhayat612@gmail.com
-        </a>
-
-        <a
-          href="https://wa.me/923106011383?text=Hello%20Mudasar%2C%20I%20visited%20your%20portfolio."
-          target="_blank"
-          rel="noopener noreferrer">
-          +92 310 6011383
-        </a>
-
-        <a
-          href="https://www.linkedin.com/in/mudasar-hayat-075466403/"
-          target="_blank"
-          rel="noopener noreferrer">
-          LinkedIn
-        </a>
-
-        <span>
-          Pakistan
-        </span>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- FOOTER -->
-  <footer>
-
-    <p>
-      © <span id="year"></span> Mudasar Hayat.
-      Built with HTML & CSS.
-    </p>
-
-  </footer>
-
-
-  <script src="script.js"></script>
-
+<a class="skip" href="#top">Skip to content</a>
+<header>
+ <div class="wrap bar">
+  <a class="logo" href="#top">Mudasar Hayat</a>
+  <button id="menu" aria-expanded="false" aria-controls="links">Menu</button>
+  <nav aria-label="Main"><ul id="links">
+   <li><a href="#about">About</a></li><li><a href="#projects">Projects</a></li><li><a href="#skills">Skills</a></li>
+   <li><a href="#experience">Experience</a></li><li><a href="#certificates">Certificates</a></li><li><a href="#contact">Contact</a></li><li><a class="cta" href="Mudasar-Hayat-CV.pdf" download>CV</a></li>
+  </ul></nav>
+ </div>
+</header>
+
+<main id="top">
+<div class="wrap hero">
+ <div>
+  <span class="status"><i></i>Open to Python and Django internships</span>
+  <h1>I build Django web apps and machine-learning projects.</h1>
+  <p>I'm a BS Software Engineering student at Virtual University of Pakistan. Alongside my studies I've worked as a software engineering intern, an SEO intern and a business development intern, so I understand the business side of the code I write.</p>
+  <div class="btns">
+   <a class="btn main" href="#projects">See my projects</a>
+   <a class="btn alt" href="Mudasar-Hayat-CV.pdf" download>Download CV</a>
+   <a class="btn alt" href="https://github.com/mudasarhayat612-oss">GitHub</a>
+  </div>
+ </div>
+ <img class="photo" src="mudasar-profile.jpg" alt="Portrait of Mudasar Hayat" width="640" height="824">
+</div>
+
+<section id="about" class="wrap" style="padding-bottom:16px">
+ <h2>About me</h2>
+ <div class="about">
+  <div>
+   <p>I like turning a practical problem into a working application, whether that is an attendance system for employees or a model that flags phishing links. I'm studying BS Software Engineering at Virtual University of Pakistan and learning by building projects and working in real teams.</p>
+   <p>My internships in SEO, lead generation and product listing taught me how to talk to clients, keep accurate records and work towards business goals. I bring that mindset to every project I build.</p>
+  </div>
+  <dl class="facts">
+   <dt>Studying</dt><dd>BS Software Engineering, Virtual University of Pakistan</dd>
+   <dt>Main stack</dt><dd>Python and Django</dd>
+   <dt>Also worked in</dt><dd>SEO, lead generation, product listing</dd>
+   <dt>Looking for</dt><dd>Python, Django and web development internships</dd>
+   <dt>Based in</dt><dd>Pakistan</dd>
+  </dl>
+ </div>
+</section>
+
+<section id="projects" class="wrap">
+ <h2>Projects</h2>
+ <p class="lead">Two full Django applications and four machine-learning projects.</p>
+ <div class="filters" role="group" aria-label="Filter projects">
+  <button aria-pressed="true" data-f="all">All</button>
+  <button aria-pressed="false" data-f="django">Django</button>
+  <button aria-pressed="false" data-f="ml">Machine learning</button>
+ </div>
+
+ <article class="proj feat" data-c="django">
+  <div><h3>Employee Attendance System</h3>
+  <p>Manage employees, record daily attendance, see dashboard statistics and generate attendance reports.</p>
+  <ul class="tags"><li>Django</li><li>Python</li><li>SQLite</li><li>Bootstrap</li></ul></div>
+  <a class="go" href="https://github.com/mudasarhayat612-oss/EmployeeAttendance">View code</a>
+ </article>
+ <article class="proj feat" data-c="django">
+  <div><h3>Student Grade Calculator</h3>
+  <p>Calculates student marks and shows grades with a clear Pass or Fail result. Includes input validation and printable results.</p>
+  <ul class="tags"><li>Django</li><li>Python</li><li>HTML</li><li>CSS</li></ul></div>
+  <a class="go" href="https://github.com/mudasarhayat612-oss/StudentGradeCalculator">View code</a>
+ </article>
+ <!-- TODO: replace each profile link below with the real GitHub repo URL -->
+ <article class="proj" data-c="ml">
+  <div><h3>URLens: phishing URL detector</h3>
+  <p>Classifies a website as safe or phishing using features extracted from its URL.</p>
+  <ul class="tags"><li>Python</li><li>Machine learning</li><li>Security</li></ul></div>
+  <a class="go" href="https://github.com/mudasarhayat612-oss">View code</a>
+ </article>
+ <article class="proj" data-c="ml">
+  <div><h3>SpamShield: SMS spam classifier</h3>
+  <p>Trained on a labelled SMS dataset to separate spam from genuine messages using an NLP workflow.</p>
+  <ul class="tags"><li>Python</li><li>NLP</li><li>Machine learning</li></ul></div>
+  <a class="go" href="https://github.com/mudasarhayat612-oss">View code</a>
+ </article>
+ <article class="proj" data-c="ml">
+  <div><h3>EcoSense: environmental data analysis</h3>
+  <p>Explores environmental data and applies intelligent analysis to find patterns.</p>
+  <ul class="tags"><li>Python</li><li>Data</li><li>AI</li></ul></div>
+  <a class="go" href="https://github.com/mudasarhayat612-oss">View code</a>
+ </article>
+ <article class="proj" data-c="ml">
+  <div><h3>Movie Recommendation System</h3>
+  <p>Suggests movies to a user based on similarities found in a movie dataset.</p>
+  <ul class="tags"><li>Python</li><li>Recommendation</li></ul></div>
+  <a class="go" href="https://github.com/mudasarhayat612-oss">View code</a>
+ </article>
+</section>
+
+<section id="skills" class="skills"><div class="wrap">
+ <h2>Skills</h2>
+ <p class="lead">Development is my main focus. The marketing skills come from internship work.</p>
+ <dl>
+  <dt>Development</dt><dd>Python, Django, JavaScript, HTML5, CSS3, SQL</dd>
+  <dt>Tools</dt><dd>Git, GitHub, Bootstrap, MySQL, SQLite, VS Code, WordPress, WooCommerce</dd>
+  <dt>SEO and marketing</dt><dd>On-page and technical SEO, keyword research, link building, citations, SEMrush, Ubersuggest, Screaming Frog</dd>
+  <dt>Business</dt><dd>Lead generation, client outreach, market research, MS Excel reporting, communication, teamwork</dd>
+ </dl>
+</div></section>
+
+<section id="experience" class="wrap">
+ <h2>Experience</h2>
+ <div class="job">
+  <time>Current</time>
+  <div><h3>Business Development Intern <span>at Bitzsol</span></h3>
+  <p>Lead generation on LinkedIn and social media, market research, client outreach, follow-ups and lead records.</p></div>
+ </div>
+ <div class="job">
+  <time>May to Jul 2026</time>
+  <div><h3>Software Engineer Intern <span>at Follow Work</span></h3>
+  <p>Two-month software engineering internship. Certificate below.</p></div>
+ </div>
+ <div class="job">
+  <time>Dec 2025 to Mar 2026</time>
+  <div><h3>SEO Intern <span>at SamLocals</span></h3>
+  <ul><li>Wrote and optimized blogs and website posts with on-page SEO.</li>
+  <li>Built backlinks and business citations.</li>
+  <li>Managed WooCommerce product listings.</li>
+  <li>Prepared SEO reports and kept records in Excel.</li></ul></div>
+ </div>
+ <div class="job">
+  <time>Earlier</time>
+  <div><h3>Product Listing Intern <span>at Xiaomi Store</span></h3>
+  <p>Listed products on eBay and Amazon and kept Excel records accurate.</p></div>
+ </div>
+</section>
+
+<section id="certificates" class="wrap" style="padding-top:0">
+ <h2>Certificates</h2>
+ <div class="certs">
+  <div class="cert"><h3>Software Engineer Internship</h3><p>Follow Work, 15 May to 15 Jul 2026</p><a href="followwork-software-engineer-certificate.pdf">View certificate</a></div>
+  <div class="cert"><h3>SEO Internship</h3><p>SamLocals, 8 Dec 2025 to 8 Mar 2026</p><a href="samlocals-seo-certificate.png">View certificate</a></div>
+ </div>
+</section>
+
+<section id="contact" class="contact"><div class="wrap">
+ <h2>Let's work together</h2>
+ <p class="lead">I'm looking for Python, Django and web development internships. Email is the fastest way to reach me.</p>
+ <div class="links">
+  <a href="mailto:mudasarhayat612@gmail.com">Email me</a>
+  <a href="https://wa.me/923106011383?text=Hello%20Mudasar%2C%20I%20visited%20your%20portfolio.">WhatsApp</a>
+  <a href="https://www.linkedin.com/in/mudasar-hayat-075466403/">LinkedIn</a>
+  <a href="https://github.com/mudasarhayat612-oss">GitHub</a>
+ </div>
+</div></section>
+</main>
+
+<footer><div class="wrap foot"><span>© 2026 Mudasar Hayat. Pakistan.</span><a href="#top">Back to top</a></div></footer>
+
+<script>
+const menu=document.getElementById('menu'),list=document.getElementById('links');
+menu.addEventListener('click',()=>{const o=list.classList.toggle('open');menu.setAttribute('aria-expanded',o)});
+list.addEventListener('click',e=>{if(e.target.tagName==='A'){list.classList.remove('open');menu.setAttribute('aria-expanded',false)}});
+const btns=document.querySelectorAll('.filters button'),cards=document.querySelectorAll('.proj');
+btns.forEach(b=>b.addEventListener('click',()=>{
+ btns.forEach(x=>x.setAttribute('aria-pressed',x===b));
+ cards.forEach(c=>c.hidden=b.dataset.f!=='all'&&c.dataset.c!==b.dataset.f);
+}));
+const navA=[...list.querySelectorAll('a[href^="#"]')];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)navA.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('main section[id]').forEach(s=>io.observe(s));
+</script>
 </body>
 </html>
